@@ -1,0 +1,24 @@
+# $Id: OptiGA.case 133 2014-02-18 02:33:09Z kato $
+
+Name = "Rastrigin2D"
+
+Chain = "Rastrigin2D.chain"
+
+Config = {
+	"Method":"Optimization",
+	"Optimizer":"GA",
+	"Objectives":[
+		{"Name":"F1", "Type":"MINIMIZE", "Weight":1.0}
+		],
+	"OptimizerConfig":{
+		"PopulationSize":50,
+		"Generations":50,
+		}
+	}
+
+Dispatcher = {
+	"Type":"MultiThread",
+	"Pipelines":8
+	}
+
+#ExperimentDirPattern = "exp"

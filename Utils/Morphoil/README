@@ -1,0 +1,54 @@
+$Id: README 107 2012-05-24 10:49:22Z kato $
+
+
+0. Introduction
+---------------------------
+
+Morphoil is used in two steps, mapping and morphing. Mapping is done once before optimization to compute physical-to-logical coordinate mapping, and this mapping information is saved to "mapping.pickled."
+
+The morphing step is done for each sample (experiment) during optimization. Morphing reads a perturbed set of control points and "mapping.pickled" and saves the morphed airfoil to "morphed.dat"
+
+
+1. Mapping (Initialization)
+---------------------------
+
+Usage:
+
+  Morphoil map ControlPoints0.dat Airfoil.dat
+
+"ControlPoints0.dat" contains N-by-M control points of the initial morphing net, where N is the number of control points in the camber-wise direction and M the thickness-wise direction. The format of this file is:
+
+N	M
+X00	Y00
+X10	Y10
+   ...
+Xn0	Yn0
+X01	Y01
+X11	Y11
+   ...
+Xn1	Yn1
+   ...
+X0m	Y0m
+X1m	Y1m
+   ...
+Xnm	Ynm
+
+where n = N - 1 and m = M - 1.
+
+"Airfoil.dat" contains a set of two point curves comprising of a suction surface and a pressure surface of an airfoil.
+
+The resulting mapping information is saved into "mapping.pickled."
+
+The mapping procedure also generates a few more files useful in debugging and initializing the control points. The net shape can be conveniently visualized using gnuplot using the follow command.
+
+  plot "ref.dat" index 0:1 with lines, "ref.dat" index 2 with lines, "./net_cp.dat" 
+
+
+2. Morphing
+---------------------------
+
+Usage:
+
+  Morphoil morph ControlPoints.dat mapping.pickled
+
+This morphes the original airfoil onto the net defined by the perturbed control points. The morphed airfoil is saved to "morphed.dat."

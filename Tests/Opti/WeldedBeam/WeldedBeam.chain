@@ -1,0 +1,52 @@
+# Rosenbrock function chain
+
+from WeldedBeam import WeldedBeam
+
+Type	= "MultiLevel"
+
+Chain	= [
+	[ "Parameters" ],
+	[ "WeldedBeam" ],
+	[ "Responses" ],
+	]
+
+Tasks	= [
+
+{
+"Name":"Parameters",
+"Type":"Parameters",
+"Config":[
+	{"Name":"b", "Type":"FLOAT", "Min":0.1, "Max":5.0, "Ref":1.0},
+	{"Name":"t", "Type":"FLOAT", "Min":0.1, "Max":10.0, "Ref":1.0},
+	{"Name":"l", "Type":"FLOAT", "Min":0.1, "Max":10.0, "Ref":1.0},
+	{"Name":"h", "Type":"FLOAT", "Min":0.1, "Max":5.0, "Ref":1.0},
+	]
+},
+
+{
+"Name":"WeldedBeam",
+"Type":"PythonFunction",
+"Config":WeldedBeam,
+},
+
+{
+"Name":"Responses",
+"Type":"Responses",
+"Config":[
+	{"Name":"Cost", "Type":"FLOAT"},
+	{"Name":"G1", "Type":"FLOAT"},
+	{"Name":"G2", "Type":"FLOAT"},
+	{"Name":"G3", "Type":"FLOAT"},
+	{"Name":"G4", "Type":"FLOAT"},
+	{"Name":"G5", "Type":"FLOAT"},
+	],
+"Success":[
+	{ "Name":"Success", "Method":None, "Criterion":None }
+	]
+},
+
+]
+
+Licenses = [
+]
+

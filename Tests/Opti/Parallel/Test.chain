@@ -1,0 +1,109 @@
+# Rosenbrock function chain
+
+Type	= "MultiLevel"
+
+Chain	= [
+	[ "Parameters" ],
+	[ "ExportParameters" ],
+	[ "DummyTask" ],
+	[ "Point1", "Point2" ],
+	[ "ExtractResponses1", "ExtractResponses2" ],
+	[ "Responses" ],
+	]
+
+Tasks	= [
+
+{
+"Name":"Parameters",
+"Type":"Parameters",
+"Config":[
+	{"Name":"X1", "Type":"FLOAT", "Min":-2.0, "Max":2.0, "Ref":0.0},
+	{"Name":"X2", "Type":"FLOAT", "Min":-2.0, "Max":2.0, "Ref":0.0},
+	]
+},
+
+{
+"Name":"ExportParameters",
+"Type":"ExportParameters",
+"Config":{
+	"File":"Parameters.in",
+	"TemplateFile":"Parameters.in.template",
+	"Parameters":[
+		{"Name":"X1", "Method":"RowColumn", "Where":{"Row":1, "Column":1}},
+		{"Name":"X2", "Method":"RowColumn", "Where":{"Row":2, "Column":1}}
+	]
+	}
+},
+
+{
+"Name":"DummyTask",
+"Type":"Execution",
+"Config":"$PROJECT_DIR/Dummy.sh",
+},
+
+{
+"Name":"Point1",
+"Type":"Execution",
+"Config":"$PROJECT_DIR/Point.py 1",
+"Success":[
+	{
+	"File":"Success1.out",
+	"Name":"Success1",
+	"Method":"RowColumn",
+	"Where":{"Row":1, "Column":1},
+	"Criterion":{"Type":"Keyword", "Value":"success"}
+	},
+	],
+},
+
+{
+"Name":"Point2",
+"Type":"Execution",
+"Config":"$PROJECT_DIR/Point.py 2",
+"Success":[
+	{
+	"File":"Success2.out",
+	"Name":"Success2",
+	"Method":"RowColumn",
+	"Where":{"Row":1, "Column":1},
+	"Criterion":{"Type":"Keyword", "Value":"success"}
+	},
+	],
+},
+
+{
+"Name":"ExtractResponses1",
+"Type":"ExtractResponses",
+"Config":{
+	"File":"Responses1.out",
+	"Responses":[
+		{"Name":"F1", "Method":"RowColumn", "Where":{"Row":1, "Column":1}},
+	]
+	}
+},
+
+{
+"Name":"ExtractResponses2",
+"Type":"ExtractResponses",
+"Config":{
+	"File":"Responses2.out",
+	"Responses":[
+		{"Name":"F2", "Method":"RowColumn", "Where":{"Row":1, "Column":1}},
+	]
+	}
+},
+
+{
+"Name":"Responses",
+"Type":"Responses",
+"Config":[
+	{"Name":"F1", "Type":"FLOAT"},
+	{"Name":"F2", "Type":"FLOAT"},
+	]
+},
+
+]
+
+Licenses = [
+]
+

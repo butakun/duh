@@ -1,0 +1,47 @@
+# $Id$
+# ZDT3 function chain
+
+from ZDT3 import ZDT3
+
+Type	= "MultiLevel"
+
+Chain	= [
+	[ "Parameters" ],
+	[ "ZDT3" ],
+	[ "Responses" ],
+	]
+
+Tasks	= [
+
+{
+"Name":"Parameters",
+"Type":"Parameters",
+"Config":[
+	{"Name":"X1", "Type":"FLOAT", "Min":0.0, "Max":1.0, "Ref":0.5},
+	{"Name":"X2", "Type":"FLOAT", "Min":0.0, "Max":1.0, "Ref":0.5},
+	]
+},
+
+{
+"Name":"ZDT3",
+"Type":"PythonFunction",
+"Config":ZDT3,
+},
+
+{
+"Name":"Responses",
+"Type":"Responses",
+"Config":[
+	{"Name":"F1", "Type":"FLOAT"},
+	{"Name":"F2", "Type":"FLOAT"},
+	],
+"Success":[
+	{ "Name":"Success", "Method":None, "Criterion":None }
+	]
+},
+
+]
+
+Licenses = [
+]
+

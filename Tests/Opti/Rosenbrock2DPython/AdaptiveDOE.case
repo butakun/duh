@@ -1,0 +1,18 @@
+# $Id$
+
+Name = "Rosenbrock2DPython"
+
+Chain = "Rosenbrock2D.chain"
+
+Config = {
+	"Method":"AdaptiveDOE",
+	"Plan":"DOE.Rosenbrock2DPython.out.plan",
+	"Iterations":10,
+	"NewSitesPerIteration":2
+	}
+
+Dispatcher = {
+	"Type":"MultiThread",
+	"Pipelines":1
+	}
+

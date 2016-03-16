@@ -1,0 +1,13 @@
+#!/bin/bash
+# $Id: P 95 2011-04-28 03:41:20Z kato $
+
+D=`dirname $0`
+
+if [ -e $D/PythonEnvironment ]; then
+	source $D/PythonEnvironment
+else
+	PYTHON=python
+fi
+
+PYTHONPATH=$D: $PYTHON $*
+

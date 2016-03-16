@@ -1,0 +1,33 @@
+# $Id: Swan 127 2013-05-17 16:35:24Z kato $
+
+D=`dirname $0`
+
+if [ -e $D/PythonEnvironment ]; then
+	source $D/PythonEnvironment
+else
+	PYTHON=python
+fi
+
+command=$1
+shift
+
+case $command in
+LOO)
+	script=$D/Utils/LOO/LOO.py
+	;;
+SOMTrain)
+	script=$D/Utils/SOM/SOMTrain.py
+	;;
+SOMView)
+	script=$D/Utils/SOM/SOMView.py
+	;;
+ANOVA)
+	script=$D/Utils/ANOVA/ANOVA.py
+	;;
+*)
+	script=$command
+	;;
+esac
+
+PYTHONPATH=$D: $PYTHON $script $*
+

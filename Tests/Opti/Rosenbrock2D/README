@@ -1,0 +1,12 @@
+$Id$
+
+How to launch a DOE campaign:
+
+1) Generate a Latin-Hypercube sample set with 20 samples.
+
+../../../Dispatcher/DOEGenerator ./Rosenbrock2D.chain LHS 20 DOE0.plan
+
+2) Launch the DOE campaign
+
+../../../Dispatcher/Launcher ./DOE.case
+

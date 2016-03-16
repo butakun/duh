@@ -1,0 +1,14 @@
+# $Id$
+
+Chain = "ZDT3.chain"
+
+Config = {
+	"Method":"DOE",
+	"Plan":"DOE0.plan"
+	}
+
+Dispatcher = {
+	"Type":"MultiThread",
+	"Pipelines":1
+	}
+

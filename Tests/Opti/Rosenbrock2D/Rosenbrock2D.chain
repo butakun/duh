@@ -1,0 +1,75 @@
+# Rosenbrock function chain
+
+Type	= "MultiLevel"
+
+Chain	= [
+	[ "Parameters" ],
+	[ "ExportParameters" ],
+	[ "Rosenbrock2D" ],
+	[ "ExtractResponses" ],
+	[ "Responses" ],
+	]
+
+Tasks	= [
+
+{
+"Name":"Parameters",
+"Type":"Parameters",
+"Config":[
+	{"Name":"X1", "Type":"FLOAT", "Min":-2.0, "Max":2.0, "Ref":0.0},
+	{"Name":"X2", "Type":"FLOAT", "Min":-2.0, "Max":2.0, "Ref":0.0},
+	]
+},
+
+{
+"Name":"ExportParameters",
+"Type":"ExportParameters",
+"Config":{
+	"File":"Parameters.in",
+	"TemplateFile":"Parameters.in.template",
+	"Parameters":[
+		{"Name":"X1", "Method":"RowColumn", "Where":{"Row":1, "Column":1}},
+		{"Name":"X2", "Method":"RowColumn", "Where":{"Row":2, "Column":1}}
+	]
+	}
+},
+
+{
+"Name":"Rosenbrock2D",
+"Type":"Execution",
+"Config":"$PROJECT_DIR/Rosenbrock2D.py",
+"Success":[
+	{
+	"File":"Success.out",
+	"Name":"Success",
+	"Method":"RowColumn",
+	"Where":{"Row":1, "Column":1},
+	"Criterion":{"Type":"Keyword", "Value":"success"}
+	},
+	],
+},
+
+{
+"Name":"ExtractResponses",
+"Type":"ExtractResponses",
+"Config":{
+	"File":"Responses.out",
+	"Responses":[
+		{"Name":"F1", "Method":"RowColumn", "Where":{"Row":1, "Column":1}},
+	]
+	}
+},
+
+{
+"Name":"Responses",
+"Type":"Responses",
+"Config":[
+	{"Name":"F1", "Type":"FLOAT"},
+	]
+},
+
+]
+
+Licenses = [
+]
+

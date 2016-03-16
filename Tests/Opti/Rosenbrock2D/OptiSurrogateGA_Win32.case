@@ -1,0 +1,23 @@
+# $Id$
+
+Chain = "Rosenbrock2D_Win32.chain"
+
+Config = {
+	"Method":"Optimization",
+	"Optimizer":"SurrogateGA",
+	"Objectives":[
+		{"Name":"F1", "Type":"MINIMIZE", "Weight":1.0}
+		],
+	"OptimizerConfig":{
+		"PopulationSize":200,
+		"Generations":50,
+		"DOE":"DOE_out.plan",
+		}
+	}
+
+Dispatcher = {
+	"Type":"MultiThread",
+	"Pipelines":1
+	}
+
+#ExperimentDirPattern = "exp"

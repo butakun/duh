@@ -1,0 +1,45 @@
+# Rosenbrock function chain
+
+from Rosenbrock2DUncomputable import Rosenbrock2DUncomputable
+
+Type	= "MultiLevel"
+
+Chain	= [
+	[ "Parameters" ],
+	[ "Rosenbrock2D" ],
+	[ "Responses" ],
+	]
+
+Tasks	= [
+
+{
+"Name":"Parameters",
+"Type":"Parameters",
+"Config":[
+	{"Name":"X1", "Type":"FLOAT", "Min":-2.0, "Max":2.0, "Ref":0.0},
+	{"Name":"X2", "Type":"FLOAT", "Min":-2.0, "Max":2.0, "Ref":0.1},
+	]
+},
+
+{
+"Name":"Rosenbrock2D",
+"Type":"PythonFunction",
+"Config":Rosenbrock2DUncomputable,
+},
+
+{
+"Name":"Responses",
+"Type":"Responses",
+"Config":[
+	{"Name":"F1", "Type":"FLOAT"},
+	],
+"Success":[
+	{ "Name":"Success", "Method":None, "Criterion":None }
+	]
+},
+
+]
+
+Licenses = [
+]
+

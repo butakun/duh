@@ -1,0 +1,27 @@
+#!/bin/bash
+
+D=`dirname $0`
+
+if [ -e $D/../../PythonEnvironment ]; then
+        source $D/../../PythonEnvironment
+else
+        PYTHON=python
+fi
+
+case $1 in
+map)
+	echo mapping
+	$PYTHON $D/MakeMorphingNet.py $2 MorphingNet0.dat
+	$PYTHON $D/Morphoil.py map MorphingNet0.dat $3
+	;;
+morph)
+	echo morphing
+	$PYTHON $D/MakeMorphingNet.py $2 MorphingNet.dat
+	$PYTHON $D/Morphoil.py morph MorphingNet.dat mapping.pickled 
+	;;
+*)
+	echo "Usage: $0 map ControlPoints0.dat Airfoil.dat"
+	echo "Usage: $0 morph ControlPoints.dat mapping.pickled"
+	;;
+esac
+

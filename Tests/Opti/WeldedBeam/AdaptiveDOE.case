@@ -1,0 +1,17 @@
+# $Id$
+
+Name = "WeldedBeam"
+
+Chain = "WeldedBeam.chain"
+
+Config = {
+	"Method":"AdaptiveDOE",
+	"Plan":"DOE.plan",
+	"InfillCriteriaFunction":
+	}
+
+Dispatcher = {
+	"Type":"MultiThread",
+	"Pipelines":1
+	}
+

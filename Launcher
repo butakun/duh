@@ -1,0 +1,13 @@
+#!/bin/bash
+# $Id: Launcher 56 2010-10-13 16:21:17Z kato $
+
+D=`dirname $0`
+
+if [ -e $D/PythonEnvironment ]; then
+	source $D/PythonEnvironment
+else
+	PYTHON=python
+fi
+
+PYTHONPATH=$D: $PYTHON $D/Backbone/Mothership.py $*
+
