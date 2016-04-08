@@ -1,5 +1,7 @@
 # $Id$
 
+Name = "Rosenbrock2D"
+
 Chain = "Rosenbrock2D.chain"
 
 Config = {
