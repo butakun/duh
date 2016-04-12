@@ -16,10 +16,10 @@ Tasks	= [
 "Name":"Parameters",
 "Type":"Parameters",
 "Config":[
-	{"Name":"b", "Type":"FLOAT", "Min":0.1, "Max":5.0, "Ref":1.0},
-	{"Name":"t", "Type":"FLOAT", "Min":0.1, "Max":10.0, "Ref":1.0},
+	{"Name":"h", "Type":"FLOAT", "Min":0.1, "Max":2.0, "Ref":1.0},
 	{"Name":"l", "Type":"FLOAT", "Min":0.1, "Max":10.0, "Ref":1.0},
-	{"Name":"h", "Type":"FLOAT", "Min":0.1, "Max":5.0, "Ref":1.0},
+	{"Name":"t", "Type":"FLOAT", "Min":0.1, "Max":10.0, "Ref":1.0},
+	{"Name":"b", "Type":"FLOAT", "Min":0.1, "Max":2.0, "Ref":1.0},
 	]
 },
 
