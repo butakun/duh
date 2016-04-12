@@ -26,7 +26,7 @@ def WeldedBeam(exp):
 	g2 = 30000.0 - sigma	# >= 0
 	g3 = Pc - 6000.0		# >= 0
 	g4 = b - h				# >= 0
-	g5 = 2.1952 / (t * t * t * b)	# = delta <= 0.125
+	g5 = 2.1952 / (t * t * t * b)	# = delta <= 0.25
 
 	exp.Response("Cost")["Value"] = cost
 	exp.Response("G1")["Value"] = g1
