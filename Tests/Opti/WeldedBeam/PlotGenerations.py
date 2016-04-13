@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 CHAINFILENAME = "WeldedBeam.chain"
 PLANFILENAME = "WeldedBeam.out.plan"
-POPULATIONSIZE = 200
+POPULATIONSIZE = 800
 
 def Main():
 
