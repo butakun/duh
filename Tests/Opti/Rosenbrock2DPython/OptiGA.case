@@ -12,7 +12,7 @@ Config = {
 		],
 	"OptimizerConfig":{
 		"PopulationSize":200,
-		"Generations":20,
+		"Generations":80,
 		}
 	}
 
