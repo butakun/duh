@@ -1,0 +1,25 @@
+# $Id$
+
+Name = "ZDT3"
+
+Chain = "ZDT3.chain"
+
+Config = {
+	"Method":"Optimization",
+	"Optimizer":"ParetoGA",
+	"Objectives":[
+		{"Name":"F1", "Type":"MINIMIZE", "Weight":1.0},
+		{"Name":"F2", "Type":"MINIMIZE", "Weight":1.0},
+		],
+	"OptimizerConfig":{
+		"Generations":100,
+		"PopulationSize":100,
+		"ArchiveSize":50,
+		}
+	}
+
+Dispatcher = {
+	"Type":"MultiThread",
+	"Pipelines":1
+	}
+

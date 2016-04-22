@@ -1,4 +1,3 @@
-# $Id$
 # ZDT3 function chain
 
 from ZDT3 import ZDT3
