@@ -20,6 +20,7 @@
 from Method import Method
 from ChainResponseEvaluator import ChainResponseEvaluator
 import Factory, Context, EA, Surrogate
+import numpy as np
 
 class MethodOpti(Method):
 
@@ -72,5 +73,7 @@ class MethodOpti(Method):
 		bestID = pop[0].ID
 		bestExp = Context.Database.FindByID(bestID)
 		resp = bestExp.ResponsesAsVector()
-		print >>self.HistoryFile, gen, "\t", reduce(lambda a, b: "%s\t%s" % (a, b), map(str, resp))
+		param = bestExp.ParametersAsVector()
+		resp_param = np.concatenate((resp, param))
+		print >>self.HistoryFile, gen, "\t", reduce(lambda a, b: "%s\t%s" % (a, b), map(str, resp_param))
 
