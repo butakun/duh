@@ -8,14 +8,14 @@ Config = {
 	"Method":"Optimization",
 	"Optimizer":"GA",
 	"Objectives":[
-		{"Name":"Cost", "Type":"MINIMIZE", "Weight":1.0},
+		{"Name":"Cost", "Type":"MINIMIZE", "Weight":1.0, "Reference":1.0, "Exponent":1.0},
 		],
 	"Constraints":[
-		{"Name":"G1", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0},
-		{"Name":"G2", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0},
-		{"Name":"G3", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0},
-		{"Name":"G4", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0},
-		{"Name":"G5", "Type":"UPPER_BOUND", "Imposed":0.25, "Weight":1.0},
+		{"Name":"G1", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0, "Reference":1.0, "Exponent":1.0},
+		{"Name":"G2", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0, "Reference":1.0, "Exponent":1.0},
+		{"Name":"G3", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0, "Reference":1.0, "Exponent":1.0},
+		{"Name":"G4", "Type":"LOWER_BOUND", "Imposed":0.0, "Weight":1.0, "Reference":1.0, "Exponent":1.0},
+		{"Name":"G5", "Type":"UPPER_BOUND", "Imposed":0.25, "Weight":1.0, "Reference":1.0, "Exponent":1.0},
 		],
 	"OptimizerConfig":{
 		"PopulationSize":800,
