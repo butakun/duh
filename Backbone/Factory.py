@@ -79,7 +79,9 @@ def CreatePenaltyEvaluator(config):
 		name = spec["Name"]
 		penaltyType = spec["Type"]
 		weight = spec["Weight"]
-		penalty = EA.Penalty(penaltyType, name, weight)
+		ref = spec["Reference"]
+		exponent = spec["Exponent"]
+		penalty = EA.Penalty(penaltyType, name, weight, ref, exponent = exponent)
 		penEval.ObjectivePenalties.append(penalty)
 
 	if not config.has_key("Constraints"):
@@ -90,8 +92,10 @@ def CreatePenaltyEvaluator(config):
 		name = spec["Name"]
 		penaltyType = spec["Type"]
 		weight = spec["Weight"]
+		ref = spec["Reference"]
 		imposed = spec["Imposed"]
-		penalty = EA.Penalty(penaltyType, name, weight, imposed = imposed)
+		exponent = spec["Exponent"]
+		penalty = EA.Penalty(penaltyType, name, weight, ref, imposed = imposed, exponent = exponent)
 		penEval.ConstraintPenalties.append(penalty)
 
 	return penEval
