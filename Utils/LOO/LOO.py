@@ -71,24 +71,6 @@ def Compute(chainFileName, planFileName, expRange = None):
 
 	numResponses = len(chain.Responses)
 
-	"""
-	# Only successful experiments will be included in the database.
-	db, ids = Surrogate.Utils.ResponseDatabaseFromPlan(plan, return_ids = True)
-
-	X, F, FLOO = [], [], []
-	for i in range(len(db)):
-		x = db[i][0]
-		f = db[i][1]
-		dbLOO = LeaveOneOutFromDB(db, i)
-		rbfn = Surrogate.RBFNetwork()
-		rbfn.Train(dbLOO)
-		fLOO = rbfn.Evaluate(x)
-		X.append(x)
-		F.append(f)
-		FLOO.append(fLOO)
-	F = n.array(F)
-	FLOO = n.array(FLOO)
-	"""
 	F, FLOO, ids = LeaveOneOut(plan)
 
 	responseNames = map(lambda r: r["Name"], chain.Responses)
